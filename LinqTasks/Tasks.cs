@@ -38,7 +38,7 @@ public static partial class Tasks
     /// </summary>
     public static int Task3()
     {
-        return -1;
+        return Emps.Max(x => x.Salary);
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public static partial class Tasks
     /// </summary>
     public static IEnumerable<Emp> Task4()
     {
-        return null;
+        return Emps.Where(x => x.Salary == Emps.Max(x => x.Salary));
     }
 
     /// <summary>
@@ -54,7 +54,10 @@ public static partial class Tasks
     /// </summary>
     public static IEnumerable<object> Task5()
     {
-        return null;
+        return Emps.Select(x => new{
+            Nazwisko = x.Ename,
+            Praca = x.Job
+        });
     }
 
     /// <summary>
@@ -64,7 +67,10 @@ public static partial class Tasks
     /// </summary>
     public static IEnumerable<object> Task6()
     {
-        return null;
+        return Emps.Join(Depts, emp => emp.Deptno, dept => dept.Deptno, (emp, dept) new{
+            Name = Emp.Ename,
+
+        });
     }
 
     /// <summary>
